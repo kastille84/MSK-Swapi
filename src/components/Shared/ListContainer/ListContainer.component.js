@@ -1,23 +1,40 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
 import PersonCard from '../PersonCard/PersonCard.component';
+import Loading from '../../Shared/Loading/Loading.component';
 
 import "./ListContainer.styles.scss";
 
-const ListContainer = ({list}) => {
+const ListContainer = ({list, fetchingListFromUrl}) => {
+
+  const determineDisplay = () => {
+    if (fetchingListFromUrl) {
+      return (
+        <div className="loading-container">
+          <Loading />
+        </div>
+      ) 
+    } else if (list.length > 0) {
+      return list.map((person,idx) => 
+        <PersonCard 
+          key={idx} 
+          person={person} 
+        />
+      )
+    } else {
+      return <p>Sorry no Characters to show</p>
+    }
+  }
 
   return (
     <div className="list-container">
-    {list.length > 0 &&
-      list.map((person,idx) => 
-      <PersonCard key={idx} person={person} />
-    )}
-
-    {list.length === 0 &&
-      <p>Sorry no Characters to show</p>
-    }
+      {determineDisplay()}
   </div>
   )
 }
 
-export default ListContainer;
+const mapStateToProps = state => ({
+  fetchingListFromUrl: state.starwars.fetchingListFromUrl
+})
+export default connect(mapStateToProps)(ListContainer);

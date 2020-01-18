@@ -4,7 +4,11 @@ import {
   GET_BROWSE_LIST_DONE,
   GET_SEARCH_LIST,
   GET_SEARCH_LIST_DONE,
-  SET_SEARCH_TERM
+  SET_SEARCH_TERM,
+  GET_BROWSE_NEXT,
+  GET_BROWSE_NEXT_DONE,
+  GET_BROWSE_PREV,
+  GET_BROWSE_PREV_DONE
 } from '../constants';
 
 
@@ -15,7 +19,8 @@ const initialState = {
   searchList: [],
   searchTerm: null,
   browseList: [],
-  fetchingData: false
+  fetchingData: false,
+  fetchingListFromUrl: false
 };
 
 export default (state=initialState, action) => {
@@ -31,6 +36,17 @@ export default (state=initialState, action) => {
         fetchingData: false,
         browseList: action.payload
       }
+    case GET_BROWSE_NEXT:
+      return {
+        ...state,
+        fetchingListFromUrl: true
+      }
+    case GET_BROWSE_NEXT_DONE:
+      return {
+        ...state,
+        fetchingListFromUrl: false,
+        browseList: action.payload
+      }
     case GET_SEARCH_LIST:
       return {
         ...state,
@@ -44,6 +60,17 @@ export default (state=initialState, action) => {
         fetchingData: false,
         searchList: action.payload
       }
+      case GET_BROWSE_PREV:
+        return {
+          ...state,
+          fetchingListFromUrl: true
+        }
+      case GET_BROWSE_PREV_DONE:
+        return {
+          ...state,
+          fetchingListFromUrl: false,
+          browseList: action.payload
+        }
     case SET_SEARCH_TERM:
       return {
         ...state,

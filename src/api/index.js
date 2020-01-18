@@ -15,9 +15,30 @@ export default ({
         })
     })
   },
+  getBrowseNext: (url) => {
+    return new global.Promise((resolve, reject)=> {
+      axios.get(url)
+        .then(response => {
+          return resolve(response.data)
+        })
+        .catch(err => {
+          return reject(err)
+        })
+    })
+  },
+  getBrowsePrev: (url) => {
+    return new global.Promise((resolve, reject)=> {
+      axios.get(url)
+        .then(response => {
+          return resolve(response.data)
+        })
+        .catch(err => {
+          return reject(err)
+        })
+    })
+  },
   getSearchList: (searchTerm) => {
     return new global.Promise((resolve, reject)=> {
-      //axios.get("https://jsonplaceholder.typicode.com/users/")
       axios.get(`https://swapi.co/api/people/?search=${searchTerm}`)
         .then(response => {
           return resolve(response.data)

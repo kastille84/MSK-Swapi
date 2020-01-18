@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
 import Router from './Router';
-
+import Footer from './components/Footer/Footer.component';
 //css imports
 import "./App.scss";
 
@@ -26,7 +26,8 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Router />        
+        <Router />    
+        <Footer />    
       </div>
     );
   }
