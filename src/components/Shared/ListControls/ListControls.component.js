@@ -15,24 +15,46 @@ import "./ListControls.styles.scss";
 
 const ListControls = ({prevUrl,nextUrl,getNext, getPrev}) => {
 
-  // const determinePage = () => {
-  //   const prevNum = 
-  // }
-  // const parse
+  const determinePage = () => {
+    //will either be a number or null
+    const prevPageNum = getPageNumFromUrl(prevUrl);
+    const nextPageNum = getPageNumFromUrl(nextUrl);
+    //base currentPage off of next page num - 1
+    let currentPage;
+    if(nextPageNum) {
+      currentPage = nextPageNum -1;
+    } else {
+      currentPage = prevPageNum + 1;
+    }
+    return currentPage
+  }
+
+  const getPageNumFromUrl = (url) => {
+    if (!url) {
+      return null
+    };
+    let numAsString="";
+    url.split("").forEach(c=> {
+      if (!isNaN(c)) {
+        numAsString += c;
+      }
+    })
+    return parseInt(numAsString)
+  }
 
   return (
     <section className="list-controls">
       <div className="list-controls__wrapper">
           <Button
-            type="primary"
+            type={prevUrl?'primary':'disabled'}
             size="large"
             onClick={()=>getPrev(prevUrl)}
           >{'< '} Prev</Button>
 
-          {/*<p>Page: {determinePage()}</p>*/}
+          <p className="page-title">Page {determinePage()}</p>
 
           <Button
-            type="primary"
+          type={nextUrl?'primary':'disabled'}
             size="large"
             onClick={()=>getNext(nextUrl)}
           >Next {' >'}</Button>

@@ -28,6 +28,15 @@
 //   background-color: lighten(#056FFA)
 // }
 
+.btn-disabled {
+  background-color: #ccc;
+  color: #aaa;
+  pointer-events: none;
+}
+.btn-disabled:hover {
+  cursor: not-allowed;  
+}
+
 //size
 .btn-large {
   min-width: 100px;
