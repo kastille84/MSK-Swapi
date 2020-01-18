@@ -9,6 +9,8 @@ import {createLogger} from 'redux-logger';
 import {Router} from 'react-router-dom';
 import createHistory from 'history/createBrowserHistory';
 
+import "./index.css"
+
 const middleware = [thunk, createLogger()];
 
 const store = createStore(reducers, applyMiddleware(...middleware));

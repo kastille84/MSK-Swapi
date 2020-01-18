@@ -2,7 +2,13 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 import './Form.style.scss';
-import { SET_SEARCH_TERM } from '../../constants';
+import { 
+  SET_SEARCH_TERM,
+  GET_SEARCH_LIST,
+  GET_SEARCH_LIST_DONE
+} from '../../constants';
+
+import api from '../../api';
 
 class Form extends Component {
 
@@ -10,29 +16,24 @@ class Form extends Component {
     search: ""
   }
 
-  // handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   console.log(this.state.search)
-  //   // let shortUrlObj = {
-  //   //   originalUrl: this.state.customUrl.length >0? `https://merry.com/${this.state.customUrl}`: this.state.url,
-  //   //   tinyUrl: `https://merry.com/${this.makeTinyUrl()}`,
-  //   //   created_at:Math.round(new Date().getTime()/1000),
-  //   //   visited_date: null
-  //   // }
-    
-  //   // //store it in local storage
-  //   // let urlArray = JSON.parse(localStorage.getItem("urlArray"));
-  //   // urlArray.push(shortUrlObj);
-  //   // localStorage.setItem('urlArray', JSON.stringify(urlArray))
+  handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(this.state.search)
 
-  //   // //clear out the form
-  //   // this.setState({"url": "", "customUrl":""});
-  // }
+    //validate searchTerm
+
+    //make api call to get searchlist
+    this.props.setSearchTerm(this.state.search);
+    this.props.getSearchList(this.state.search);
+
+    //clear out the form
+    this.setState({"search": ""});
+  }
 
 
   handleChangeSearch = (event) => {
     let value = event.target.value;
-    this.props.setSearchTerm(event.target.value)
+    this.setState({search: value})
   }
 
 
@@ -47,7 +48,7 @@ class Form extends Component {
             <input 
               name="search"
               type="text"
-              value={this.props.searchTerm}
+              value={this.state.search}
               placeholder="Search all characters"
               onChange={this.handleChangeSearch}
             />
@@ -60,11 +61,19 @@ class Form extends Component {
 }
 
 const mapStateToProps = state => ({
-  searchTerm: state.starwars.searchTerm
+  //searchTerm: state.starwars.searchTerm
 })
 const mapDispatchToProps = dispatch => ({
   setSearchTerm: (word) => {
     dispatch({type: SET_SEARCH_TERM, payload: word})
+  },
+  getSearchList: (word) => {
+    dispatch({type: GET_SEARCH_LIST})
+    api.getSearchList(word)
+      .then(payload => {
+        dispatch({type: GET_SEARCH_LIST_DONE, payload})
+      })
+      .catch()
   }
 })
 

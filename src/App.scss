@@ -1,6 +1,20 @@
+
 .App {
-  * {
-    
+  * {    
+    font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
   }
+  
+  background: #000;
+  height: 100%;
+
+  .page-title {
+    color: #fff;
+    text-align:center;
+  }
+
+  p {
+    color: #404040;
+  }
+
 }

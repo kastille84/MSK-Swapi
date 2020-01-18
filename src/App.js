@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 
 import Router from './Router';
 
+//css imports
 import "./App.scss";
 
 import api from './api';
@@ -11,15 +12,15 @@ import api from './api';
 import {
   GET_BROWSE_LIST,
   GET_BROWSE_LIST_DONE,
-  GET_SEARCH_LIST,
-  GET_SEARCH_LIST_DONE
+  // GET_SEARCH_LIST,
+  // GET_SEARCH_LIST_DONE
 } from './constants'
 
 class App extends React.Component {
 
   componentDidMount() {
     this.props.getBrowseList();
-    this.props.getSearchList();
+    //this.props.getSearchList();
   }
 
   render() {
@@ -41,14 +42,6 @@ const mapDispatchToProps = (dispatch => ({
     api.getBrowseList()
       .then(payload => {
         dispatch({type: GET_BROWSE_LIST_DONE, payload})
-      })
-      .catch()
-  },
-  getSearchList: () => {
-    dispatch({type: GET_SEARCH_LIST})
-    api.getSearchList()
-      .then(payload => {
-        dispatch({type: GET_SEARCH_LIST_DONE, payload})
       })
       .catch()
   }

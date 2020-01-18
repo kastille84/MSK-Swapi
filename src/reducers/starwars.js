@@ -34,7 +34,9 @@ export default (state=initialState, action) => {
     case GET_SEARCH_LIST:
       return {
         ...state,
-        fetchingData: true
+        fetchingData: true,
+        searching: true,
+        browsing: false
       }
     case GET_SEARCH_LIST_DONE:
       return {
