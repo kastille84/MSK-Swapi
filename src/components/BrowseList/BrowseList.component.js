@@ -12,7 +12,7 @@ class BrowseList extends Component {
       <section className="browse-list">
         <p className="list-title">Browsing</p>
         <ListContainer list={(results||[])} />
-        <ListControls prevUrl={previous} nextUrl={next} />
+        <ListControls prevUrl={previous} nextUrl={next} listType="browsing" />
       </section>
     )
   }

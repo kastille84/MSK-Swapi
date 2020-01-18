@@ -48,6 +48,27 @@ export default ({
         })
     })
   },
-
+  getSearchNext: (url) => {
+    return new global.Promise((resolve, reject)=> {
+      axios.get(url)
+        .then(response => {
+          return resolve(response.data)
+        })
+        .catch(err => {
+          return reject(err)
+        })
+    })
+  },
+  getSearchPrev: (url) => {
+    return new global.Promise((resolve, reject)=> {
+      axios.get(url)
+        .then(response => {
+          return resolve(response.data)
+        })
+        .catch(err => {
+          return reject(err)
+        })
+    })
+  }
 
 })

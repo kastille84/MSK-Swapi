@@ -8,12 +8,16 @@ import {
   GET_BROWSE_NEXT,
   GET_BROWSE_NEXT_DONE,
   GET_BROWSE_PREV,
-  GET_BROWSE_PREV_DONE
+  GET_BROWSE_PREV_DONE,
+  GET_SEARCH_NEXT,
+  GET_SEARCH_NEXT_DONE,
+  GET_SEARCH_PREV,
+  GET_SEARCH_PREV_DONE,
 } from '../../../constants';
 
 import "./ListControls.styles.scss";
 
-const ListControls = ({prevUrl,nextUrl,getNext, getPrev}) => {
+const ListControls = ({prevUrl,nextUrl, listType, getNext, getPrev}) => {
 
   const determinePage = () => {
     //will either be a number or null
@@ -48,7 +52,7 @@ const ListControls = ({prevUrl,nextUrl,getNext, getPrev}) => {
           <Button
             type={prevUrl?'primary':'disabled'}
             size="large"
-            onClick={()=>getPrev(prevUrl)}
+            onClick={()=>getPrev(prevUrl, listType)}
           >{'< '} Prev</Button>
 
           <p className="page-title">Page {determinePage()}</p>
@@ -56,7 +60,7 @@ const ListControls = ({prevUrl,nextUrl,getNext, getPrev}) => {
           <Button
           type={nextUrl?'primary':'disabled'}
             size="large"
-            onClick={()=>getNext(nextUrl)}
+            onClick={()=>getNext(nextUrl, listType)}
           >Next {' >'}</Button>
       </div>
     </section>
@@ -64,19 +68,45 @@ const ListControls = ({prevUrl,nextUrl,getNext, getPrev}) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-  getNext: (url) => {
-    dispatch({type: GET_BROWSE_NEXT})
-    api.getBrowseNext(url)
-    .then(payload => {
-      dispatch({type: GET_BROWSE_NEXT_DONE, payload})
-    })
+  getNext: (url, listType) => {
+    switch(listType) {
+      case "browsing":
+        dispatch({type: GET_BROWSE_NEXT})
+        api.getBrowseNext(url)
+        .then(payload => {
+          dispatch({type: GET_BROWSE_NEXT_DONE, payload})
+        })
+        break;
+      case "searching":
+        dispatch({type: GET_SEARCH_NEXT})
+        api.getSearchNext(url)
+        .then(payload => {
+          dispatch({type: GET_SEARCH_NEXT_DONE, payload})
+        })
+        break;
+      default:
+        return;
+    }
   },
-  getPrev: (url) => {
-    dispatch({type: GET_BROWSE_PREV})
-    api.getBrowsePrev(url)
-    .then(payload => {
-      dispatch({type: GET_BROWSE_PREV_DONE, payload})
-    })
+  getPrev: (url, listType) => {
+    switch(listType) {
+      case "browsing":
+        dispatch({type: GET_BROWSE_PREV})
+        api.getBrowsePrev(url)
+        .then(payload => {
+          dispatch({type: GET_BROWSE_PREV_DONE, payload})
+        })
+        break;
+      case "searching":
+        dispatch({type: GET_SEARCH_PREV})
+        api.getSearchPrev(url)
+        .then(payload => {
+          dispatch({type: GET_SEARCH_PREV_DONE, payload})
+        })
+        break;
+      default:
+        return;
+    }
   }
 })
 

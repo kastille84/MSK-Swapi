@@ -2,18 +2,17 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux'
 
 import ListContainer from '../Shared/ListContainer/ListContainer.component'
+import ListControls from '../Shared/ListControls/ListControls.component';
 
 class SearchList extends Component {
 
   render() {
+    const {searchTerm, searchList} = this.props;
     return (
       <section className="search-list">
-        <p className="list-title">Results for ... <span className="search-list__search-term">"{this.props.searchTerm}"</span></p>
-        {/*todo - extract these into reusable components */}
-        <ListContainer list={(this.props.searchList.results||[])} />
-        <div className="list-controls">
-
-        </div>
+        <p className="list-title">Results for ... <span className="search-list__search-term">"{searchTerm}"</span></p>
+        <ListContainer list={(searchList.results||[])} />
+        <ListControls prevUrl={searchList.previous} nextUrl={searchList.next} listType="searching"/>
       </section>
     )
   }
@@ -21,8 +20,6 @@ class SearchList extends Component {
 
 const mapStateToProps = state => ({
   fetchingData: state.starwars.fetchingData,
-  // browsing: state.starwars.browsing,
-  // searching: state.starwars.searching,
   searchList: state.starwars.searchList,
   searchTerm: state.starwars.searchTerm
 })
