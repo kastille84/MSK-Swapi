@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Button from '../../Shared/Button/Button.component';
+
 import "./PersonCard.styles.scss";
 
 const PersonCard = ({person}) => {
@@ -7,8 +9,12 @@ const PersonCard = ({person}) => {
   return (
     <div className="person-card">
       <h3>{person.name}</h3>
-      {/* TODO - Make a button component */}
-      <button>View more</button>
+      <Button
+        type="primary"
+        size="medium"
+      >
+        View more
+      </Button>
     </div>
   )
 }

@@ -53,7 +53,6 @@ class Form extends Component {
               onChange={this.handleChangeSearch}
             />
           </div>
-          <button type="submit">Search</button>
         </form>
       </div>
     )
