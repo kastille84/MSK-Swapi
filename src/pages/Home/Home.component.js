@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Modal from "react-modal";
 
-import Form from "../../components/Form/Form.component";
+//import Form from "../../components/Form/Form.component";
+import Form from '../../components/Form/Form.component';
 import BrowseList from "../../components/BrowseList/BrowseList.component";
 import SearchList from "../../components/SearchList/SearchList.component";
 import Loading from "../../components/Shared/Loading/Loading.component";
