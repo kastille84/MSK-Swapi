@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import PersonCard from '../PersonCard/PersonCard.component';
+import CharacterCard from '../CharacterCard/CharacterCard.component';
 import Loading from '../../Shared/Loading/Loading.component';
 
 import "./ListContainer.styles.scss";
@@ -16,10 +16,10 @@ const ListContainer = ({list, fetchingListFromUrl}) => {
         </div>
       ) 
     } else if (list.length > 0) {
-      return list.map((person,idx) => 
-        <PersonCard 
+      return list.map((character,idx) => 
+        <CharacterCard 
           key={idx} 
-          person={person} 
+          character={character} 
         />
       )
     } else {
