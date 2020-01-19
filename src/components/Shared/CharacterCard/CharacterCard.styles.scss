@@ -2,16 +2,21 @@
   width: 200px;
   height: 200px;
   margin-bottom: 20px;
-  padding:20px;
-  box-shadow: 1px 5px 7px 1px rgba(0,0,0,0.93);
-  background: rgb(252,192,76);
-  background: linear-gradient(180deg, rgba(252,192,76,1) 0%, rgba(240,170,78,1) 49%, rgba(228,147,81,1) 100%);
-  text-align:center;
+  padding: 20px;
+  box-shadow: 1px 5px 7px 1px rgba(0, 0, 0, 0.93);
+  background: rgb(252, 192, 76);
+  background: linear-gradient(
+    180deg,
+    rgba(252, 192, 76, 1) 0%,
+    rgba(240, 170, 78, 1) 49%,
+    rgba(228, 147, 81, 1) 100%
+  );
+  text-align: center;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: transform .3s;
+  transition: transform 0.3s;
 }
 
 .character-card:hover {

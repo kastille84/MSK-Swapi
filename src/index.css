@@ -1,5 +1,5 @@
 html {
-  background:black;
+  background: black;
 }
 body {
   margin: 0;
@@ -8,7 +8,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  margin-top:-20px;
+  margin-top: -20px;
 }
 
 code {

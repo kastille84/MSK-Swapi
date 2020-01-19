@@ -1,19 +1,18 @@
-
 .App {
   max-width: 1400px;
-  margin:auto;
-  
-  * {    
-    font-family: 'Roboto', sans-serif;
+  margin: auto;
+
+  * {
+    font-family: "Roboto", sans-serif;
     box-sizing: border-box;
   }
-  
+
   background: #000;
   height: 100%;
 
   .page-title {
     color: #fff;
-    text-align:center;
+    text-align: center;
   }
   .list-title {
     font-size: 24px;
@@ -27,5 +26,4 @@
   p {
     color: #404040;
   }
-
 }

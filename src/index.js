@@ -1,17 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import {applyMiddleware, createStore} from 'redux';
-import {Provider} from 'react-redux'
-import reducers from './reducers/index';
-import thunk from 'redux-thunk';
-import {createLogger} from 'redux-logger';
-import {Router} from 'react-router-dom';
-import createHistory from 'history/createBrowserHistory';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import { applyMiddleware, createStore } from "redux";
+import { Provider } from "react-redux";
+import reducers from "./reducers/index";
+import thunk from "redux-thunk";
+import { createLogger } from "redux-logger";
+import { Router } from "react-router-dom";
+import createHistory from "history/createBrowserHistory";
 
-import "./index.css"
+import "./index.css";
 
-const middleware = [thunk, createLogger()];
+const middleware = process.env.NODE_ENV ==="production"?[thunk]: [thunk, createLogger()];
 
 const store = createStore(reducers, applyMiddleware(...middleware));
 
@@ -20,6 +20,6 @@ ReactDOM.render(
     <Router history={createHistory()}>
       <App />
     </Router>
-  </Provider>
-  , document.getElementById('root'));
-
+  </Provider>,
+  document.getElementById("root")
+);

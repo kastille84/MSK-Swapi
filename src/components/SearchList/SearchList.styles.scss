@@ -1,12 +1,11 @@
 .search-list {
-
   &__info {
-    width:80%;
-    margin:auto;
+    width: 80%;
+    margin: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
+
     p {
       font-size: 24px;
       color: #606060;
@@ -17,13 +16,11 @@
       color: #fff;
     }
   }
-
 }
 
 //media queries
 @media screen and (min-width: 320px) and (max-width: 375px) {
   .search-list {
-
     &__info {
       flex-direction: column;
 
@@ -36,7 +33,6 @@
 
 @media screen and (min-width: 376px) and (max-width: 425px) {
   .search-list {
-
     &__info {
       flex-direction: column;
 

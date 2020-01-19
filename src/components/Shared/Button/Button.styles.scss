@@ -1,23 +1,21 @@
 .btn {
   padding: 5px 10px;
-  border:none;
+  border: none;
   border-radius: 3px;
-  transition: transform .2s;
+  transition: transform 0.2s;
 }
 .btn:hover {
   cursor: pointer;
   box-shadow: 0px 1px 5px #444;
-  // transform: translate(1%, 1%);
-  // transform: scale(1.1, 1.1);
 }
 
 //background
 .btn-primary {
-  background-color: #056FFA;
+  background-color: #056ffa;
   color: #ffffff;
 }
 .btn-primary:hover {
-  background-color: lighten(#056FFA, 10%)
+  background-color: lighten(#056ffa, 10%);
 }
 
 // .btn-secondary {
@@ -34,7 +32,7 @@
   pointer-events: none;
 }
 .btn-disabled:hover {
-  cursor: not-allowed;  
+  cursor: not-allowed;
 }
 
 //size
