@@ -19,3 +19,30 @@
   }
 
 }
+
+//media queries
+@media screen and (min-width: 320px) and (max-width: 375px) {
+  .search-list {
+
+    &__info {
+      flex-direction: column;
+
+      .btn {
+        order: -1;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 376px) and (max-width: 425px) {
+  .search-list {
+
+    &__info {
+      flex-direction: column;
+
+      .btn {
+        order: -1;
+      }
+    }
+  }
+}

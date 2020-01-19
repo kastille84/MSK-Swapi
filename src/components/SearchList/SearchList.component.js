@@ -18,7 +18,7 @@ class SearchList extends Component {
     return (
       <section className="search-list">
         <div className="search-list__info">
-          <p>Results for ... <span className="search-list__info__search-term">"{searchTerm}"</span></p>
+          <p>Results for... <span className="search-list__info__search-term">"{searchTerm}"</span></p>
           <Button 
             type="primary"
             size="large"

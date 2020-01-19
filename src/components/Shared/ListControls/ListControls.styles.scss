@@ -8,3 +8,24 @@
     justify-content: space-evenly;
   }
 }
+
+//media queries
+@media screen and (min-width: 320px) and (max-width: 375px) {
+  .list-controls {
+    &__wrapper {
+      .page-title {
+        font-size: smaller;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 376px) and (max-width: 425px) {
+  .list-controls {
+    &__wrapper {
+      .page-title {
+        font-size: smaller;
+      }
+    }
+  }
+}

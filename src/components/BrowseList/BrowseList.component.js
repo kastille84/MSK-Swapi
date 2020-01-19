@@ -10,7 +10,7 @@ class BrowseList extends Component {
     const {results, next, previous} = this.props.browseList;
     return (
       <section className="browse-list">
-        <p className="list-title">Browsing</p>
+        <p className="list-title">Browsing...</p>
         <ListContainer list={(results||[])} />
         <ListControls prevUrl={previous} nextUrl={next} listType="browsing" />
       </section>
