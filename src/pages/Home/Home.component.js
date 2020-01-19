@@ -31,19 +31,23 @@ class Home extends Component {
     modalIsOpen: false
   };
 
+  componentDidMount() {
+    if(this.props.selectedCharacter !== null) {
+      this.setState({modalIsOpen: true})
+    }
+  }
+  componentDidUpdate(prevProps, prevState) {
+    if(prevProps.selectedCharacter===null && this.props.selectedCharacter!==null) {
+      if(this.props.selectedCharacter !== null) {
+        this.setState({modalIsOpen: true})
+      }
+    }
+  }
   
-  // openModal() {
-  //   this.setState({modalIsOpen: true});
-  // }
- 
-  // afterOpenModal() {
-  //   // references are now sync'd and can be accessed.
-  //   this.subtitle.style.color = '#f00';
-  // }
  
   closeModal() {
     //sets selectedCharacter to null
-    this.props.setSelectedCharacter()
+    this.props.setSelectedCharacter();
     this.setState({modalIsOpen: false});
   }
 
@@ -64,24 +68,35 @@ class Home extends Component {
     }
   }
 
-  componentDidMount() {
-    if(this.props.selectedCharacter !== null) {
-      this.setState({modalIsOpen: true})
-    }
-  }
-  componentDidUpdate(prevProps, prevState) {
-    if(prevProps.selectedCharacter===null && this.props.selectedCharacter!==null) {
-      if(this.props.selectedCharacter !== null) {
-        this.setState({modalIsOpen: true})
-      }
-    }
+  //if Star Wars / Memorial Sloan Kettering Logo Image does not load
+  //default to a text of "Star Wars"
+  handleImageLoadError = () => {
+    const $logoWrapper = document.getElementById('logo-wrapper');
+    const $textTitle = document.createElement("h1");
+    const $figure = document.getElementsByTagName("figure")[0];
+
+    $textTitle.setAttribute("class", "page-title")
+    $textTitle.textContent="Star Wars";
+
+    $logoWrapper.removeChild($figure);
+    $logoWrapper.append($textTitle);
   }
 
   render() {
     const {selectedCharacter} = this.props;
     return (
       <main className="home">
-        <h1 className="page-title">Star Wars</h1>
+        {/*<h1 className="page-title">Star Wars</h1>*/}
+        <section id="logo-wrapper">
+          <figure>
+            <img 
+              src="https://fontmeme.com/permalink/200119/4753369442bd99cc418e17dbfcd297f8.png" 
+              //src="https://notExist"
+              alt="Star Wars" 
+              onError={()=>this.handleImageLoadError()}
+            />
+          </figure>
+        </section>
         <Form />
         {this.determineTypeOfList()}
 

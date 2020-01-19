@@ -20,11 +20,13 @@ class Form extends Component {
     e.preventDefault();
     console.log(this.state.search)
 
-    //validate searchTerm
-
+    //validate searchTerm for empty string
+    if(this.state.search.trim()==="") {
+      return;
+    }
     //make api call to get searchlist
-    this.props.setSearchTerm(this.state.search);
-    this.props.getSearchList(this.state.search);
+    this.props.setSearchTerm(this.state.search.trim());
+    this.props.getSearchList(this.state.search.trim());
 
     //clear out the form
     this.setState({"search": ""});

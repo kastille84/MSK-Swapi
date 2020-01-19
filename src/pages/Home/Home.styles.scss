@@ -16,6 +16,14 @@
     }
   }
 
+  #logo-wrapper {
+    margin-bottom: 40px;
+
+    figure {
+      text-align:center;
+    }
+  }
+
 }
 .character-detail {
   
@@ -36,5 +44,43 @@
   }
   &__footer {
     text-align: right;
+  }
+}
+
+
+//media queries
+@media screen and (min-width: 320px) and (max-width: 375px) {
+  .home {
+    figure {
+      width: 80%;
+      margin:auto;
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 376px) and (max-width: 425px) {
+  .home {
+    figure {
+      width: 80%;
+      margin:auto;
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 426px) and (max-width: 768px) {
+  .home {
+    figure {
+      width: 80%;
+      margin:auto;
+      img {
+        width: 100%;
+      }
+    }
   }
 }
