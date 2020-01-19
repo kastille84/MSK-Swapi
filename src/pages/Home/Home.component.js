@@ -6,6 +6,8 @@ import Form from '../../components/Form/Form.component';
 import BrowseList from '../../components/BrowseList/BrowseList.component';
 import SearchList from '../../components/SearchList/SearchList.component';
 import Loading from '../../components/Shared/Loading/Loading.component';
+import Popup from '../../components/Shared/Popup/Popup.component';
+
 class Home extends Component {
 
   determineTypeOfList = () => {

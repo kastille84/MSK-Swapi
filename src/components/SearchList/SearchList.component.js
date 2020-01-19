@@ -3,14 +3,29 @@ import {connect} from 'react-redux'
 
 import ListContainer from '../Shared/ListContainer/ListContainer.component'
 import ListControls from '../Shared/ListControls/ListControls.component';
+import Button from '../Shared/Button/Button.component';
+
+import {
+  SET_BROWSING_TRUE
+} from '../../constants';
+
+import "./SearchList.styles.scss";
 
 class SearchList extends Component {
 
   render() {
-    const {searchTerm, searchList} = this.props;
+    const {searchTerm, searchList, setBrowsing} = this.props;
     return (
       <section className="search-list">
-        <p className="list-title">Results for ... <span className="search-list__search-term">"{searchTerm}"</span></p>
+        <div className="search-list__info">
+          <p>Results for ... <span className="search-list__info__search-term">"{searchTerm}"</span></p>
+          <Button 
+            type="primary"
+            size="large"
+            onClick={()=>setBrowsing()}
+            >Back to browsing
+          </Button>
+        </div>
         <ListContainer list={(searchList.results||[])} />
         <ListControls prevUrl={searchList.previous} nextUrl={searchList.next} listType="searching"/>
       </section>
@@ -24,4 +39,10 @@ const mapStateToProps = state => ({
   searchTerm: state.starwars.searchTerm
 })
 
-export default connect(mapStateToProps)(SearchList);
+const mapDispatchToProps = dispatch => ({
+  setBrowsing: () => {
+    dispatch({type: SET_BROWSING_TRUE})
+  }
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchList);

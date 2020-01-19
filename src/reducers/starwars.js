@@ -13,6 +13,7 @@ import {
   GET_SEARCH_PREV,
   GET_SEARCH_PREV_DONE,
   SET_SEARCH_TERM,
+  SET_BROWSING_TRUE
 } from '../constants';
 
 
@@ -101,6 +102,12 @@ export default (state=initialState, action) => {
       return {
         ...state,
         searchTerm: action.payload
+      }
+    case SET_BROWSING_TRUE:
+      return {
+        ...state,
+        browsing:true,
+        searching:false
       }
     default:
       return state;

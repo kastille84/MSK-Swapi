@@ -23,7 +23,11 @@ const ListContainer = ({list, fetchingListFromUrl}) => {
         />
       )
     } else {
-      return <p>Sorry no Characters to show</p>
+      return (
+        <div className="no-result-container">
+          <p>Sorry no Characters to show</p>
+        </div>
+      )
     }
   }
 

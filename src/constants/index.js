@@ -17,3 +17,6 @@ export const GET_SEARCH_NEXT = "GET_SEARCH_NEXT";
 export const GET_SEARCH_NEXT_DONE = "GET_SEARCH_NEXT_DONE";
 export const GET_SEARCH_PREV = "GET_SEARCH_PREV";
 export const GET_SEARCH_PREV_DONE = "GET_SEARCH_PREV_DONE";
+
+//Switching between Searching and Browsing
+export const SET_BROWSING_TRUE = "SET_BROWSING_TRUE";

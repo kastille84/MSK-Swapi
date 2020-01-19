@@ -6,6 +6,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  height: 480px;
+  overflow-y:auto;
 
   .loading-container {
     position:relative;
@@ -19,6 +21,18 @@
       div {
         border-color: black transparent transparent transparent;
       }
+    }
+  }
+
+  .no-result-container {
+    position: relative;
+    width: 100%;
+    
+    p {
+      position:absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
   }
 }
