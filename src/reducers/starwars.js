@@ -13,7 +13,8 @@ import {
   GET_SEARCH_PREV,
   GET_SEARCH_PREV_DONE,
   SET_SEARCH_TERM,
-  SET_BROWSING_TRUE
+  SET_BROWSING_TRUE,
+  SET_SELECTED_CHARACTER
 } from '../constants';
 
 
@@ -25,7 +26,8 @@ const initialState = {
   searchTerm: null,
   browseList: [],
   fetchingData: false,
-  fetchingListFromUrl: false
+  fetchingListFromUrl: false,
+  selectedCharacter: null
 };
 
 export default (state=initialState, action) => {
@@ -108,6 +110,11 @@ export default (state=initialState, action) => {
         ...state,
         browsing:true,
         searching:false
+      }
+    case SET_SELECTED_CHARACTER:
+      return {
+        ...state,
+        selectedCharacter: action.payload
       }
     default:
       return state;

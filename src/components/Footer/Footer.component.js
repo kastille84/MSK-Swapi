@@ -5,7 +5,7 @@ import './Footer.styles.scss';
 const Footer = () => {
   return (
     <section className="footer">
-      <p>Created by Edwin Martinez</p>
+      <p>Created by <a href="https://github.com/kastille84" target="_blank">Edwin Martinez</a></p>
     </section>
   )
 }

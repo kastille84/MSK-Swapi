@@ -20,3 +20,6 @@ export const GET_SEARCH_PREV_DONE = "GET_SEARCH_PREV_DONE";
 
 //Switching between Searching and Browsing
 export const SET_BROWSING_TRUE = "SET_BROWSING_TRUE";
+
+//selected Characters
+export const SET_SELECTED_CHARACTER = "SET_SELECTED_CHARACTER";

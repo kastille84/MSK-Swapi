@@ -15,4 +15,26 @@
       transform: translate(-50%, -50%);
     }
   }
+
+}
+.character-detail {
+  
+  &__info {
+    display:flex;
+    margin-bottom: 6px;
+
+    &--left {
+      min-width: 85px;
+      color: #808080;
+      font-weight: 600;
+    }
+
+    &--right {
+      color: #808080;
+      font-weight: 600;
+    }
+  }
+  &__footer {
+    text-align: right;
+  }
 }
