@@ -11,7 +11,8 @@ import createHistory from "history/createBrowserHistory";
 
 import "./index.css";
 
-const middleware = process.env.NODE_ENV ==="production"?[thunk]: [thunk, createLogger()];
+//const middleware = process.env.NODE_ENV ==="production"?[thunk]: [thunk, createLogger()];
+const middleware = [thunk, createLogger()];
 
 const store = createStore(reducers, applyMiddleware(...middleware));
 
